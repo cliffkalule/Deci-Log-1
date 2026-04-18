@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+
+{% block title %}Decision | Deci Log{% endblock %}
+
+ {% block content %}
+
+<h2>create a decision</h2>
+
+<form action="/create" method="POST" class="form-grid">
+
+
+<!-- title -->
+<label for="title">Type your decision:</label><br>
+<input type="text" name="title">
+
+<br>
+
+<!-- reason -->
+
+<label for="reason">Whats your reason for the decision:</label><br>
+<input type="text" name="reason"><br>
+
+<!-- confidence_level -->
+
+{# <label for="confidence_level">How confident are you:</label><br>
+<input type="number" name="confidence_level"> #}
+
+<label for="confidence_level">How confident are you:</label> 
+<br><br>
+
+{# <select name="confidence_level" id="confidence_level">
+  <option value="1">I am sure</option>
+  <option value="2">I am surely</option>
+  <option value="3">I am suremente</option>
+  <option value="4">I am confident about this</option>
+</select> #}
+
+<select name="confidence_level" id="confidence_level">
+  <option value="1">I am not sure</option>
+  <option value="2">I am not surely</option>
+  <option value="3">I am not suremente</option>
+  <option value="4">I am not confident about this</option>
+  <option value="4">I aint confident about this</option>
+</select>
+
+<br><br>
+
+<select name="outcome" id="outcome">
+  <option value="success">Success</option>
+  <option value="pending">Pending</option>
+  <option value="failed">Failed</option>
+</select>
+<br><br>
+
+<label for="lesson_learned"></label><br>
+<textarea name="lesson_learned"></textarea>   
+
+<br><br>
+
+<input type="date" name="created_at">
+<br><br>
+
+<button type="submit" class ="btn btn-primary"> log your decision</button>
+
+</form>
+
+
+
+
+<h1>List of your decisions</h1>
+
+<!---->
+{% endblock %}

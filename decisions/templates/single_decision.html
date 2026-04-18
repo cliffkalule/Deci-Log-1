@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block title %}Decision | Deci Log{% endblock %}
+
+ {% block content %}
+{# <h2>{{ decision.title }}</h2>
+<p><strong>Reason:</strong> {{ decision.reason }}</p>
+<p><strong>Confidence Level:</strong> {{ decision.confidence_level }}</p>
+<p><strong>Outcome:</strong> {{ decision.outcome }}</p>
+<p><strong>Lesson:</strong> {{ decision.lesson }}</p>
+<p><strong>Created At:</strong> {{ decision.created_at }}</p>
+
+<a href="/decision.decisions">← Back to all decisions</a> #}
+
+
+<ul>
+    <li>title: {{decision.title}}</li>
+    <li>reason: {{decision.reason}}</li>
+    <li>confidence_level: {{decision.confidence_level}}</li>
+    <li>outcome: {{decision.outcome}}</li>
+    <li>lesson: {{decision.lesson_learned}}</li>
+    <li>created_at: {{decision.created_at}}</li>
+</ul>
+
+<button>
+<a href="{{url_for('decision.update_decision', id=decision.id)}}">update</a></button>
+<form action="{{url_for('decision.delete_decision', id=decision.id)}}" method = "POST">
+    <button type ="Submit">Delete</button>
+</form>
+
+{% endblock %}

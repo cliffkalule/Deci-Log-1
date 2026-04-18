@@ -1,0 +1,42 @@
+<style>
+    table,
+    th,
+    td {
+        border: 1px solid black;
+        border-collapse: collapse;
+    }
+</style>
+
+{% extends "base.html" %}
+
+{% block title %}Decision | Deci Log{% endblock %}
+
+ {% block content %}
+
+<table>
+    <tr>
+        <th>Decision</th>
+        <th>Title</th>
+        <th>Reason</th>
+        <th>Confidence Level</th>
+        <th>Outcome</th>
+        <th>Lesson</th>
+        <th>Created At</th>
+        <th>Details</th>
+ 
+    </tr>
+
+    {% for decision in decisions %}
+    <tr>
+        <td>{{decision.title}}</td>
+        <td>{{decision.reason}}</td>
+        <td>{{decision.confidence_level}}</td>
+        <td>{{decision.outcome}}</td>
+        <td>{{decision.lesson_learned}}</td>
+        <td>{{decision.created_at}}</td>
+        <!-- <td><a href="{{url_for('decision.single_decision', id=decision.id)}}">details</a></td> -->
+    </tr>
+    {% endfor %}
+</table>
+
+{% endblock %}

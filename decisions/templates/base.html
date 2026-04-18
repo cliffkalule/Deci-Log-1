@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{% block title %}Deci Log{% endblock %}</title>
+
+    <!--
+    <style>
+        body{
+            background-color: red;
+        }
+    </style>
+    -->
+        
+
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+
+        <!-- Your custom styles -->
+        <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}" />
+
+
+</head>
+
+<body>
+    <div class="page-shell">
+        <header class="site-header">
+            <h1>Deci Log</h1>
+            <nav class="site-nav">
+                <!--<a href="{{ url_for('decision.decisions') }}">View Decisions</a>
+                <br>
+                <a href="{{ url_for('decision.create_decision') }}">Create Decision</a>-->
+            </nav>
+        </header>
+
+
+        <main>
+            {% block content %}{% endblock %}
+        </main>
+    </div>
+</body>
+
+</html>
+

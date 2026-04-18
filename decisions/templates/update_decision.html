@@ -1,0 +1,83 @@
+{% extends "base.html" %}
+
+{% block title %}Decision | Deci Log{% endblock %}
+
+ {% block content %}
+<h2>Update a decision</h2>
+
+<form action="{{url_for('update_decision', id=decision.id)}}" method="POST" class="form-grid">
+
+
+<!-- title -->
+<div>
+<input type="text" name="title" value="{{decision.title}}">
+
+ </div>
+
+<!-- reason -->
+<div>
+<input type="text" name="reason" value="{{decision.reason}}">
+</div>
+
+<div>
+<select name="confidence_level" id="confidence_level">
+  <option value={{decision.confidence_level}}>{{decision.confidence_level}}</option>
+ </div>
+
+  {# <option value="1">I am not sure</option>
+  <option value="2">I am not surely</option>
+  <option value="pending">I am not suremente</option>
+  <option value="4">I am not confident about this</option>
+  <option value="5">I aint confident about this</option> #}
+</select>
+
+<div>
+
+<h1>Outcome and lesson_learned</h1>
+</hr>
+
+<select name="outcome" id="outcome">
+  <option value="success">Success</option>
+  <option value="pending">Pending</option>
+  <option value="Failed">Failed</option>
+</select>
+</div>
+
+<div>
+<label for="lesson_learned"></label><br>
+<textarea name="lesson_learned">{{decision.lesson_learned}}</textarea>   
+
+</div>
+
+
+<input type="date" name="created_at" value="{{decision.created_at}}">
+</div>
+<div>
+<button type="submit" class="btn btn-primary"> Update Decision</button>
+</div>
+</form>
+
+<h1>Decision for reference</h1>
+
+<table>
+    <tr>        
+        <th>Title</th>
+        <th>Reason</th>
+        <th>Confidence Level</th>
+        <th>Outcome</th>
+        <th>Lesson Learned</th>
+        <th>Created At</th>
+    </tr>
+
+    {% for decision in decisions %}
+    <tr>
+        <td>{{decision.title}}</td>
+        <td>{{decision.reason}}</td>
+        <td>{{decision.confidence_level}}</td>
+        <td>{{decision.outcome}}</td>
+        <td>{{decision.lesson_learned}}</td>
+        <td>{{decision.created_at}}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}
